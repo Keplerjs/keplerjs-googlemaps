@@ -2,8 +2,8 @@
 Package.describe({
   name: "keplerjs:googlemaps",
   summary: "Keplerjs Goole Maps API",
-  version: "1.2.1",
-  git: "https://github.com/Keplerjs/Kepler.git"
+  version: "1.2.2",
+  git: "https://github.com/Keplerjs/keplerjs-googlemaps.git"
 });
 
 Npm.depends({
