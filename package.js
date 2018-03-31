@@ -15,7 +15,7 @@ Package.onUse(function (api) {
   api.versionsFrom("1.5.1");
 
   api.use([
-    'keplerjs:core',
+    'keplerjs:core@1.2.5',
   ]);
 
   api.addFiles([
