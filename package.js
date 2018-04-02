@@ -2,7 +2,7 @@
 Package.describe({
   name: "keplerjs:googlemaps",
   summary: "Keplerjs Goole Maps API",
-  version: "1.2.5",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/keplerjs-googlemaps.git"
 });
 
@@ -15,7 +15,7 @@ Package.onUse(function (api) {
   api.versionsFrom("1.5.1");
 
   api.use([
-    'keplerjs:core@1.2.5',
+    'keplerjs:core@1.3.0',
   ]);
 
   api.addFiles([
