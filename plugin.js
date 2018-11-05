@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'googlemaps',
 	templates: {
-		panelPlace: 'panelPlace_googlemaps'
+		tabPlace: 'tabPlace_googlemaps'
 	},
 /*	settings: {
 		"googlemaps": {
