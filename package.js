@@ -8,7 +8,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "googlemaps": "0.1.9",
+  "@google/maps": "0.5.5",
 });
 
 Package.onUse(function (api) {
@@ -28,9 +28,12 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
+    'client/Googlemaps.js',
   	'client/Place_streetview.js',
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/views/popups.html',
+    'client/views/popups.js',
   ],'client');
 
   api.addFiles([

@@ -2,11 +2,15 @@
 K.Plugin({
 	name: 'googlemaps',
 	templates: {
-		tabPlace: 'tabPlace_googlemaps'
+		tabPlace: 'tabPlace_gmaps',
+		popupCursor: 'popupCursor_gmaps'
 	},
-/*	settings: {
+	settings: {
 		"googlemaps": {
-			"googleKey": ""
+			"findByLocDist": 50,
+			"findByLocLimit": 10,
+			"findByBBoxLimit": 10,
+			"key": "",
 		}
-	}*/
+	}
 });

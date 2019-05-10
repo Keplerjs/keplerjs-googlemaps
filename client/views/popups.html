@@ -1,0 +1,54 @@
+
+<template name="popupCursor_gmaps">
+	<a class="btn-gmapssearch btn btn-default btn-sm btn-block" href="#">
+		<i class="icon icon-gmap"></i> {{i18n 'btn_gmapssearch'}}
+	</a>
+</template>
+
+<template name="popupGeojson_gmaps">
+	<div class="popup-gmaps">
+		{{#if properties.tags.name}}
+		<a class="btn btn-block btn-default popup-tit">
+			<b>{{properties.tags.name}}</b>
+		</a>
+		{{/if}}
+      <div class="list-group-item">
+      {{> popupGmaps}}
+      </div>
+		<a class="btn-osmimport btn btn-default btn-block" href="#">
+			<i class="icon icon-add"></i> {{i18n 'btn_osmimport'}}
+		</a>
+	</div>
+</template>
+
+<template name="popupGmaps"> 
+   <div class="row">
+      <div class="col-sm-12">
+         {{#each keys}}
+            <label>
+               <a href="{{url}}" target="_blank">
+               	<b>{{key}}</b>
+               </a>
+            </label>
+            <span>{{val}}</span>
+            <br />
+         {{/each}}
+       </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-12">
+         <label>{{i18n 'label_osmid'}}</label>
+         <a class="btn btn-xs btn-link" href="http://osm.org/{{id}}" target="_blank">{{properties.id}}</a>
+         {{#with properties.meta}}
+			 {{#if user}}
+				<label>{{i18n 'label_osmuser'}}</label>
+				<a class="btn btn-xs btn-link" href="http://osm.org/user/{{user}}" target="_blank">{{user}}</a>
+	         {{/if}}
+	         {{#if timestamp}}
+				<label>{{i18n 'label_osmdate'}}</label>
+				<a class="btn btn-xs disabled">{{numericDate timestamp}}</a>
+	         {{/if}}
+         {{/with}}      
+      </div>
+   </div>
+</template>
