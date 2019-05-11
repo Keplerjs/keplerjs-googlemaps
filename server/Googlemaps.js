@@ -48,18 +48,18 @@ Kepler.Googlemaps = {
 
 		//TODO here implement caching system
 
-		var future = new Future();
+		this.future = new Future();
 
 		Googlemaps[method](query, function(err, resp) {
 			if(err) {
 				console.log('Googlemaps: api error', err)
-				future.throw(err);
+				this.future.throw(err);
 			}
 			else if(resp && resp.json)
-				future.return(resp.json); 
+				this.future.return(resp.json.results); 
 		});
 
-		return future.wait();
+		return this.future.wait();
 	},
 
 	findByLoc: function(loc, opts) {
@@ -83,9 +83,11 @@ Kepler.Googlemaps = {
       timeout: v.optional(v.number)*/
 		};
 
-		var geojson = this.requestSync('placesNearby',query);
+		var res = this.requestSync('placesNearby',query);
 
-			//features = geojson.features;
+		var features = _.map(res, function(r) {
+			return r.geometry
+		});
 		/*
 		for(var f in features) {
 			if( features[f] && features[f].properties) {
@@ -97,9 +99,9 @@ Kepler.Googlemaps = {
 			}
 		}*/
 
-		console.log('Googlemaps: findByLoc',loc,geojson)
+		console.log('Googlemaps: findByLoc',loc,features)
 
-		return [];
+		return features;
 	},
 
 	/*findOsmById: function(osmId) {
