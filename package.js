@@ -34,11 +34,13 @@ Package.onUse(function (api) {
     'client/views/panels.js',
     'client/views/popups.html',
     'client/views/popups.js',
+    'client/views/markers.html',
   ],'client');
 
   api.addFiles([
     'server/Googlemaps.js',
     'server/streetview.js',
+    'server/places.js',
   ],'server');
 
 });

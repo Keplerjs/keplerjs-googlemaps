@@ -1,6 +1,6 @@
 
 <template name="popupCursor_gmaps">
-	<a class="btn-gmapssearch btn btn-default btn-sm btn-block" href="#">
+	<a class="btn-search btn btn-default btn-sm btn-block" href="#">
 		<i class="icon icon-gmap"></i> {{i18n 'btn_gmapssearch'}}
 	</a>
 </template>
@@ -15,7 +15,7 @@
       <div class="list-group-item">
       {{> popupGmaps}}
       </div>
-		<a class="btn-osmimport btn btn-default btn-block" href="#">
+		<a class="btn-import btn btn-default btn-block" href="#">
 			<i class="icon icon-add"></i> {{i18n 'btn_osmimport'}}
 		</a>
 	</div>
@@ -24,15 +24,7 @@
 <template name="popupGmaps"> 
    <div class="row">
       <div class="col-sm-12">
-         {{#each keys}}
-            <label>
-               <a href="{{url}}" target="_blank">
-               	<b>{{key}}</b>
-               </a>
-            </label>
-            <span>{{val}}</span>
-            <br />
-         {{/each}}
+         {{{keys}}}
        </div>
    </div>
    <div class="row">

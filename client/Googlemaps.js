@@ -22,13 +22,7 @@ Kepler.Googlemaps = {
 
 	loadByLoc: function(loc, cb) {
 
-		var opts = {
-			filter: '~".*"~".*"',//'highway~".*"',
-			type: 'node',//'way'
-			limit: 1
-		};
-
-		Meteor.call('findGooglemapsByLoc', loc, opts, function(err, geojson) {
+		Meteor.call('findGooglemapsByLoc', loc, function(err, geojson) {
 
 			if(err){
 				console.log('findGooglemapsByLoc',err)
@@ -50,9 +44,9 @@ Kepler.Googlemaps = {
 		});
 	},
 
-	/*importPlace: function(osmId, cb) {
+	importPlace: function(id, cb) {
 		
-		Meteor.call('insertPlaceByGoogleId', osmId, function(err, placeId) {
+		Meteor.call('insertPlaceByGoogleId', id, function(err, placeId) {
 
 			if(err)
 				console.log(err)
@@ -70,5 +64,5 @@ Kepler.Googlemaps = {
 			if(_.isFunction(cb))
 				cb(placeId);
 		});
-	}*/
+	}
 };

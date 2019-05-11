@@ -1,6 +1,6 @@
 
 Template.popupCursor_gmaps.events({
-	'click .btn-gmapssearch': function(e,tmpl) {
+	'click .btn-search': function(e,tmpl) {
 
 		var btn$ = $(e.target),
 			icon$ = btn$.find('.icon');
@@ -13,17 +13,15 @@ Template.popupCursor_gmaps.events({
 		});
 	}
 });
-/*
-Template.popupGeojson_osm.events({
-	'click .btn-osmimport': function(e,tmpl) {
+
+Template.popupGeojson_gmaps.events({
+	'click .btn-import': function(e,tmpl) {
 		
 		var icon$ = $(e.target).find('.icon');
 		$(e.target).addClass('disabled');
 		icon$.addClass('icon-loader');
 
-		var osmId = tmpl.data.properties.id;
-
-		K.Osm.importPlace(osmId, function(placeId) {
+		K.Googlemaps.importPlace(tmpl.data.properties.id, function(placeId) {
 			$(e.target).removeClass('disabled');
 			icon$.removeClass('icon-loader');
 		});
@@ -31,19 +29,8 @@ Template.popupGeojson_osm.events({
 });
 
 
-Template.popupOsm.helpers({
+Template.popupGmaps.helpers({
 	keys: function() {
-
-		var ret = [];
-
-		_.each(this.properties.tags, function(val, key) {
-			ret.push({
-				key: key,
-				url: 'http://wiki.openstreetmap.org/wiki/Key:'+key,
-				val: val
-			});
-		});
-
-		return ret;
+		return K.Util.json2html(this.properties);
 	}
-});*/
+});
