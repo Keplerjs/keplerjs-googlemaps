@@ -55,17 +55,19 @@ Kepler.Googlemaps = {
 
 		var res = this.requestSync('placesNearby',query);
 
-console.log('findByLoc',res)
 
 		var features = _.map(res, function(r) {
-			return K.Util.geo.feature('Point',r.geometry.location,r);
+			var loc = r.geometry.location,
+				cc = [loc.lng, loc.lat];
+			delete r.geometry;
+			return K.Util.geo.feature('Point',cc,r);
 		});
 
 		features = [features[0]];
-		
+
 		var geojson = K.Util.geo.featureColl(features);
 
-		console.log('Googlemaps: findByLoc',loc,geojson)
+		console.log('Googlemaps: findByLoc',loc)
 
 		return geojson;
 	},

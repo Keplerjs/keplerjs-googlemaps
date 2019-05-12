@@ -27,10 +27,3 @@ Template.popupGeojson_gmaps.events({
 		});
 	}
 });
-
-
-Template.popupGmaps.helpers({
-	keys: function() {
-		return K.Util.json2html(this.properties);
-	}
-});

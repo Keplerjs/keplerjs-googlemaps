@@ -27,7 +27,7 @@ Kepler.Googlemaps = {
 			if(err){
 				console.log('findGooglemapsByLoc',err)
 			}
-			else if(geojson && geojson.features.length) {
+			else if(geojson && geojson.features) {
 
 				geojson.features = _.map(geojson.features, function(feature) {
 					feature.templateMarker = 'markerGmaps';
